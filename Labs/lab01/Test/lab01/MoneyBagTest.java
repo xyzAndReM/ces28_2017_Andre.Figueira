@@ -46,39 +46,17 @@ public class MoneyBagTest {
 		 */
 	}
 	
-	@Test
-	public void MoneyBag_TakeAllFromCurrencyMethod_AllMoneyFromGivenCurrencyIsRemoved() {
-		dummy_bag.addMoney(other_CHF05);
-		dummy_bag.addMoney(other_BRL10);
-		dummy_bag.addMoney(other_USD15);
-		dummy_bag.addMoney(other_JPY15);
-		dummy_bag.takeAllFromCurrency(JPY);
-		assertTrue(dummy_bag.size() == 3);
-		assertEquals(mb,dummy_bag);
-		dummy_bag.takeAllFromCurrency(USD);
-		assertTrue(dummy_bag.size() == 2);
-		assertNotEquals(mb,dummy_bag);
-	}
-	@Test
-	public void MoneyBag_TakeAllFromCurrencyMethod_TakenMoneyIsReturned() {
-		dummy_money = mb.takeAllFromCurrency(USD);
-		assertEquals(other_USD15,dummy_money);
-	}
-	@Test
-	public void MoneyBag_TakeAllFromCurrencyMethod_ReturnNullIfThereIsNoCurrencyRequestedInTheBag() {
-		dummy_money = mb.takeAllFromCurrency(JPY);
-		assertEquals(null,dummy_money);
-	}
+	
 	
 	/**
 	 * SubMoney Method
-	 * Este método subtrai money da bag, se há incoerência de quantidade (insufisciência) ou de moeda então
-	 * nada acontece e uma excepção é levantada.
-	 * Teste1: Caso simples em que a bag contém a moeda em quantidade suficiente
-	 * Teste2: Caso em que há a moeda correspondente porém quantidade insufisciente, espera-se exceção e que nada ocorra
-	 * Teste3: Caso em que não há compatibilidade de moedas,  espera-se exceção e que nada ocorra
+	 * Este mï¿½todo subtrai money da bag, se hï¿½ incoerï¿½ncia de quantidade (insufisciï¿½ncia) ou de moeda entï¿½o
+	 * nada acontece e uma excepï¿½ï¿½o ï¿½ levantada.
+	 * Teste1: Caso simples em que a bag contï¿½m a moeda em quantidade suficiente
+	 * Teste2: Caso em que hï¿½ a moeda correspondente porï¿½m quantidade insufisciente, espera-se exceï¿½ï¿½o e que nada ocorra
+	 * Teste3: Caso em que nï¿½o hï¿½ compatibilidade de moedas,  espera-se exceï¿½ï¿½o e que nada ocorra
 	 * Teste4: Caso em que se retira precisamente a quantidade exata de uma moeda na bag, para este caso o money dentro
-	 * da bag deve ser retirado tendo em vista que dentro de uma bag não pode haver money nulo.
+	 * da bag deve ser retirado tendo em vista que dentro de uma bag nï¿½o pode haver money nulo.
 	 */
 	@Test //1
 	public void MoneyBag_SubMoneyMethod_BagContainsCurrency_EnoughAmount() {
@@ -128,10 +106,10 @@ public class MoneyBagTest {
 	}
 	/**
 	 * AddBag Method
-	 * Este método adiciona uma bag à outra
+	 * Este mï¿½todo adiciona uma bag ï¿½ outra
 	 * Teste1: Caso simples em que uma bag contem todas as moedas da outra
-	 * Teste2: Caso em que há a moeda correspondente porém quantidade insufisciente, espera-se exceção e que nada ocorra
-	 * Teste3: Caso em que não há compatibilidade de moedas,  espera-se exceção e que nada ocorra
+	 * Teste2: Caso em que hï¿½ a moeda correspondente porï¿½m quantidade insufisciente, espera-se exceï¿½ï¿½o e que nada ocorra
+	 * Teste3: Caso em que nï¿½o hï¿½ compatibilidade de moedas,  espera-se exceï¿½ï¿½o e que nada ocorra
 	 */
 	@Test
 	public void MoneyBag_addBagMethod_SimpleAddBagTest_BagContainsAllCurrenciesOfTheOther() {
@@ -160,6 +138,7 @@ public class MoneyBagTest {
 		dummy_bag.addBag(dummy_bag2);
 		assertEquals(dummy_bag,mb);
 	}
+	/**------------------------------------EXTRA------------------------------------------------*/
 	@Test
 	public void MoneyBag_subBagMethod_BagBeingSubtractedHasAllCurrenciesFromTheSubtractingOneAndEnoughAmount() {
 		dummy_bag.addBag(mb);
@@ -199,14 +178,42 @@ public class MoneyBagTest {
 		dummy_bag.subBag(mb); //dummy_bag has 1 mb now
 		assertEquals(dummy_bag,mb); //they should be equal now if the does nothing operation worked as intended
 	}
+	/**----------------------------------fim do extra-----------------------------------------------
 	@Test
 	/**
-	 * ÍTEM NUMERO 11
+	 * ï¿½TEM NUMERO 11
 	 */
 	public void MoneyBag_convertBRLMethod() {
-		//mb = {BRL10, CHF05, USD15} -> 3x15 + 2x5 = 55
-		dummy_money.setAll(55, BRL);
+		//mb = {BRL10, CHF05, USD15} -> 3x15 + 2x5 + 10 = 65
+		dummy_money.setAll(65, BRL);
 		assertEquals(dummy_money,mb.convertBRL());
+		//mb2 = {CHF05} -> 2x5 = 10
+		dummy_money.setAll(10, BRL);
+		assertEquals(dummy_money,mb2.convertBRL());
+		//{} -> 0
+		dummy_money.setAll(0, BRL);
+		assertEquals(dummy_money,dummy_bag.convertBRL());
+		
+	}
+	
+	@Test
+	/**
+	 * ï¿½TEM NUMERO 9
+	 */
+	public void MoneyBag_toString() {
+		//mb = {BRL10, CHF05, USD15}
+		assertEquals(mb.toString(),"[10BRL, 5CHF, 15USD]");
+		//mb2 = {CHF05}
+		assertEquals(mb2.toString(),"[5CHF]");
+		//dummy_bag = {0}
+		assertEquals(dummy_bag.toString(),"[]");
+		
+		dummy_bag.addMoney(JPY15);
+		dummy_bag.addMoney(USD15);
+		//{JPY15 USD15}
+		assertEquals(dummy_bag.toString(),"[15JPY, 15USD]");
+		
+		
 	}
 	
 	

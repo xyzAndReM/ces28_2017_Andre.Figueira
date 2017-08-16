@@ -44,12 +44,12 @@ public class MoneyBagSimpleTest {
 	
 	/**
 	 * Contains Method
-	 * O método contains deve dizer se existe uma cópia de dado elemento dentro da bag:
+	 * O mï¿½todo contains deve dizer se existe uma cï¿½pia de dado elemento dentro da bag:
 	 * Teste1: Mesmo que o money possua outro ponteiro este deve apontar como verdadeiro
 	 * Teste2: Uma bag n deve conter conteudos nulos
-	 * Teste3: Se uma bag contém 10 BRL, contains só resultará verdadeiro para exatamente
+	 * Teste3: Se uma bag contï¿½m 10 BRL, contains sï¿½ resultarï¿½ verdadeiro para exatamente
 	 * 10 BRL, nada mais e nada menos.
-	 * Teste4: Uma bag não deve conter aquilo que não foi adicionado.
+	 * Teste4: Uma bag nï¿½o deve conter aquilo que nï¿½o foi adicionado.
 	 * 
 	 * 
 	 * */
@@ -73,9 +73,9 @@ public class MoneyBagSimpleTest {
 	
 	/**
 	 * isZero Method
-	 * Este método informa se a bag está ou não vazia
-	 * Teste1: Se nada foi adicionado à bag, ela esta vazia
-	 * Teste2: Se algo foi adicionado à bag então ela não está vazia
+	 * Este mï¿½todo informa se a bag estï¿½ ou nï¿½o vazia
+	 * Teste1: Se nada foi adicionado ï¿½ bag, ela esta vazia
+	 * Teste2: Se algo foi adicionado ï¿½ bag entï¿½o ela nï¿½o estï¿½ vazia
 	 */
 	@Test
 	public void isZeroMethod_BuiltBagShoudBeEmpty() {
@@ -91,16 +91,16 @@ public class MoneyBagSimpleTest {
 	
 	/**
 	 * addMoney Method
-	 * Se money é adicionado à uma bag, então ele faz parte de seu contéudo.
-	 * Teste1: Adicionar money à uma bag vazia, ela deixa de ser vazia e ela deve conter o money adicionado
-	 * Teste2: Tentativa de adicionar money nulo de moeda que não existe dentro da bag
+	 * Se money ï¿½ adicionado ï¿½ uma bag, entï¿½o ele faz parte de seu contï¿½udo.
+	 * Teste1: Adicionar money ï¿½ uma bag vazia, ela deixa de ser vazia e ela deve conter o money adicionado
+	 * Teste2: Tentativa de adicionar money nulo de moeda que nï¿½o existe dentro da bag
 	 * Teste3: Tentativa de adicionar money nulo de moeda que existe dentro da bag
-	 * Teste4: Várias adições de moneys de moedas diferentes, todos os moneys devem ser contidos.
-	 * Teste5: Várias adições de moneys de mesma moeda não devem criar outro elemento dentro da bag e sim
-	 * adicionar ao money da moeda já contido na bag
-	 * Teste6: Quando um money é adicionado, a bag não deve sofrer mudanças se o objeto
+	 * Teste4: Vï¿½rias adiï¿½ï¿½es de moneys de moedas diferentes, todos os moneys devem ser contidos.
+	 * Teste5: Vï¿½rias adiï¿½ï¿½es de moneys de mesma moeda nï¿½o devem criar outro elemento dentro da bag e sim
+	 * adicionar ao money da moeda jï¿½ contido na bag
+	 * Teste6: Quando um money ï¿½ adicionado, a bag nï¿½o deve sofrer mudanï¿½as se o objeto
 	 * que originou a soma for destruido ou mudado (certificando-se q o objeto dentro da
-	 * bag é uma copia do objeto adicionado)
+	 * bag ï¿½ uma copia do objeto adicionado)
 	 */
 	@Test //1
 	public void MoneyBag_AddMoneyMethod_SimpleAdd() {
@@ -125,6 +125,9 @@ public class MoneyBagSimpleTest {
 	public void MoneyBag_AddMoneyMethod_0AmountAdded_BagDoesHaveTheCurrencyInside() {
 		
 		//{CHF05, BRL10, USD15, JPY15} + JPY00 = {CHF05, BRL10, USD15, JPY15}
+		dummy_bag.addMoney(other_CHF05);
+		dummy_bag.addMoney(other_BRL10);
+		dummy_bag.addMoney(other_USD15);
 		dummy_bag.addMoney(JPY15);
 		mb.addMoney(JPY15);
 		dummy_bag.addMoney(JPY00);
@@ -162,14 +165,14 @@ public class MoneyBagSimpleTest {
 	}
 	/**
 	 * Equals Method
-	 * Teste de equivalência
-	 * Teste1: bags iguais são equivalentes
-	 * Teste2: A ordem dentro da bag não importa, testando equivalencia para mesma ordem
-	 * Teste3: A ordem dentro da bag não importa, testando equivalencia para diferente ordem
-	 * Teste4: Bags com moedas iguais  mas quantidades diferentes são diferentes.
-	 * Teste5: Bags com moedas diferentes mas quantidades iguais são diferentes.
-	 * Teste6: Bags com moedas e quantidades diferentes são diferentes
-	 * Teste7: Mesmo que uma bag contenha outra mas possua elementos a mais, então ela é diferente
+	 * Teste de equivalï¿½ncia
+	 * Teste1: bags iguais sï¿½o equivalentes
+	 * Teste2: A ordem dentro da bag nï¿½o importa, testando equivalencia para mesma ordem
+	 * Teste3: A ordem dentro da bag nï¿½o importa, testando equivalencia para diferente ordem
+	 * Teste4: Bags com moedas iguais  mas quantidades diferentes sï¿½o diferentes.
+	 * Teste5: Bags com moedas diferentes mas quantidades iguais sï¿½o diferentes.
+	 * Teste6: Bags com moedas e quantidades diferentes sï¿½o diferentes
+	 * Teste7: Mesmo que uma bag contenha outra mas possua elementos a mais, entï¿½o ela ï¿½ diferente
 	 */
 	@Test //1
 	public void MoneyBag_EqualsMethod_Simple() {

@@ -2,28 +2,28 @@ package lab01;
 import java.util.*;
 
 public class MoneyBag implements Materia  {
-	Hashtable<Currency,Money> _Bag  = new Hashtable<Currency,Money>();
+	LinkedHashMap<Currency,Money> _Bag  = new LinkedHashMap<Currency,Money>();
 	
-	/**Retorna o número de moneys dentro da bag **/
+	/**Retorna o nï¿½mero de moneys dentro da bag **/
 	public int size() { return _Bag.size(); }
 	
-	/**Retorna string com o conteúdo dentro da bag 
+	/**Retorna string com o conteï¿½do dentro da bag 
 	 * ITEM NUMERO 9**/
 	public String toString() {
 		String contents = new String();
 		for(Currency coin: _Bag.keySet()){
            contents +=  "" + _Bag.get(coin).toString() + "\n";
         }
-		return contents;
+		return _Bag.values().toString();
 	}
-	/** Retorna boolean informando se há zero termos dentro da bag**/
+	/** Retorna boolean informando se hï¿½ zero termos dentro da bag**/
 	public boolean isZero() {
 		return _Bag.size() == 0;
 	}
 	
-	/**Adiciona money à bag, se o money adicionado possui valor nulo então ele não é adicionado.
-	 * @param m money a ser adicionado à bag
-	 * @return this a própria bag à qual o money foi adicionado
+	/**Adiciona money ï¿½ bag, se o money adicionado possui valor nulo entï¿½o ele nï¿½o ï¿½ adicionado.
+	 * @param m money a ser adicionado ï¿½ bag
+	 * @return this a prï¿½pria bag ï¿½ qual o money foi adicionado
 	 *  **/
 	public Materia addMoney(Money m) {
 		Currency coin = m.getCurrency();
@@ -42,9 +42,9 @@ public class MoneyBag implements Materia  {
 		}
 		return this;
 	}
-	/**Adiciona uma bag à esta.
-	 * @param m bag a ser adicionado à bag
-	 * @return this a própria bag à qual a bag foi adicionada
+	/**Adiciona uma bag ï¿½ esta.
+	 * @param m bag a ser adicionado ï¿½ bag
+	 * @return this a prï¿½pria bag ï¿½ qual a bag foi adicionada
 	 *  **/
 	public MoneyBag addBag(MoneyBag m) {
 		
@@ -54,8 +54,8 @@ public class MoneyBag implements Materia  {
 			return this;
 	}
 	/**Subtrai um money desta bag.
-	 * @param m money a ser subtraído
-	 * @return this a própria bag à qual o money foi subtraído
+	 * @param m money a ser subtraï¿½do
+	 * @return this a prï¿½pria bag ï¿½ qual o money foi subtraï¿½do
 	 *  **/
 	public MoneyBag subMoney(Money m) {
 		Currency coin = m.getCurrency();
@@ -68,17 +68,17 @@ public class MoneyBag implements Materia  {
 				this.removeEmptyPockets(new_money);
 			}
 			else {
-				throw new SaldoInsuficienteException("Não há dinheiro suficiente");
+				throw new SaldoInsuficienteException("Nï¿½o hï¿½ dinheiro suficiente");
 			}
 		}
 		else {
-			throw new DiffCurrencyException("Operação de subtração entre moedas diferentes não é permitido");
+			throw new DiffCurrencyException("Operaï¿½ï¿½o de subtraï¿½ï¿½o entre moedas diferentes nï¿½o ï¿½ permitido");
 		}
 		return this;
 	}
 	/**Subtrai uma bag desta bag.
-	 * @param m a bag a ser subtraída
-	 * @return this a própria bag à qual a bag foi subtraída
+	 * @param m a bag a ser subtraï¿½da
+	 * @return this a prï¿½pria bag ï¿½ qual a bag foi subtraï¿½da
 	 *  **/
 	public MoneyBag subBag(MoneyBag m) {
 		MoneyBag collector = new MoneyBag();
@@ -99,21 +99,11 @@ public class MoneyBag implements Materia  {
 		}
 		return this;
 	}
-	// Retrieves the Money of given currency from the bag, removing it from the bag and returning it.
-	public Money takeAllFromCurrency(Currency coin) {
-		
-			Money dummy = _Bag.get(coin);
-			if(dummy != null) {
-				Money money_to_be_taken = dummy.cloneMoney();
-				_Bag.remove(coin);
-				return money_to_be_taken;
-			}
-			else return null;
-	}
+	
 	
 	/** Remove da bag moneys com 0 amount
 	 * 
-	 * @param m money passivel de eliminação
+	 * @param m money passivel de eliminaï¿½ï¿½o
 	 */
 	private void removeEmptyPockets(Money m) {
 
@@ -129,11 +119,15 @@ public class MoneyBag implements Materia  {
 		Integer amount = 0;
 		Money usd = _Bag.get(Currency.getInstance("USD"));
 		Money chf = _Bag.get(Currency.getInstance("CHF"));
+		Money brl = _Bag.get(Currency.getInstance("BRL"));
 		if(usd != null) {
 		amount += usd.getAmount()*3;	
 		}
 		if(chf != null) {
 			amount += chf.getAmount()*2;	
+		}
+		if(brl != null) {
+			amount += brl.getAmount()*1;	
 		}
 		return new Money(amount,Currency.getInstance("BRL"));
 		
@@ -154,11 +148,11 @@ public class MoneyBag implements Materia  {
 	
 	public Money getMoney(Currency currency) { return _Bag.get(currency).cloneMoney(); }
 	
-	public Hashtable<Currency,Money> getBag() {return (Hashtable<Currency,Money>) _Bag.clone();}
+	public LinkedHashMap<Currency,Money> getBag() {return (LinkedHashMap<Currency,Money>) _Bag.clone();}
 	
-	public void setBag(Hashtable<Currency,Money> mb) {_Bag = mb;}
+	public void setBag(LinkedHashMap<Currency,Money> mb) {_Bag = mb;}
 	
-	public boolean contains(Money m) {return _Bag.contains(m); }
+	public boolean contains(Money m) {return _Bag.containsValue(m); }
 	
 	@Override
 	/** Equals method
