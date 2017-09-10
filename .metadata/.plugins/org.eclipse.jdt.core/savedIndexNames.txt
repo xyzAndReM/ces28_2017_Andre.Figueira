@@ -1,3 +1,25 @@
+<<<<<<< HEAD
 INDEX VERSION 1.130+C:\Users\Pichau\Desktop\ces28_2017_Andre.Figueira\.metadata\.plugins\org.eclipse.jdt.core
 1226054456.index
 3491580546.index
+=======
+INDEX VERSION 1.130+/home/andre/ces28_2017_Andre.Figueira/.metadata/.plugins/org.eclipse.jdt.core
+3530540584.index
+3539432263.index
+925982370.index
+821608291.index
+2253745042.index
+502732891.index
+1628687906.index
+813341167.index
+2359322674.index
+3485262699.index
+1089239932.index
+3066711521.index
+3883508318.index
+2744878784.index
+3512161136.index
+3192467362.index
+1571501549.index
+3511098938.index
+>>>>>>> e1302e1425c57843ab34afbf6c56abdb7a8a7177
