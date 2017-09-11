@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-public class ControladorTest {
+public class ControladorPTCTest{
 	
 	@Mock
 	private Sensor sensor;
