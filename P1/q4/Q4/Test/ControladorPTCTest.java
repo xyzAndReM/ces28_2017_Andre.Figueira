@@ -64,7 +64,7 @@ public class ControladorPTCTest{
 		Mockito.when(sensor.isCruzamento()).thenReturn(true);
 		Mockito.when(painelCond.imprimirAviso("Velocidade alta",1)).thenReturn(false);
 		a.run();
-		verify(painelCond,times(2)).imprimirAviso("Velocidade Baixa", 1);
+		verify(painelCond,times(2)).imprimirAviso("Velocidade Baixa", 1); //
 		verify(painelCond, times(1)).aceleraVelocidadeTrem(20.0); 
 	}
 }
