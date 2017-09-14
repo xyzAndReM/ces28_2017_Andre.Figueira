@@ -11,8 +11,7 @@ public class CalculadoraString {
 		Matcher m = p.matcher(numbers);
 		String pattern = "(\\\\)?(\\[(.*?)\\])*(\n)?(\\s+)*((-?\\d+)?((\\s)*,(\\s)*)*((\\s)*(\n)(\\s)*)*";
 		while(m.find()) {
-			separator = m.group(1);
-			System.out.println(separator);
+			separator ="\\Q" +  m.group(1) + "\\E";
 		    pattern += "((\\s)*" + separator + "(\\s)*)*";
 		    numbers2 = numbers2.replaceAll(separator, ",");
 		}
@@ -22,6 +21,7 @@ public class CalculadoraString {
 		//String pattern = "(\\s+)*((-?\\d+)?((\\s)*,(\\s)*)*((\\s)*\n(\\s)*)*)*";
 		
 		Pattern verificador = Pattern.compile(pattern);
+		System.out.println(verificador);
 		Matcher aceitavel = verificador.matcher(numbers);
 		 if (!aceitavel.matches()) {
 		        throw new IllegalArgumentException(pattern + "\n" + numbers2);
