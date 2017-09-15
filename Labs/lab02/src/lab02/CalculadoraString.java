@@ -7,18 +7,18 @@ public class CalculadoraString {
 	static int add(String numbers) {
 		String numbers2 = numbers;
 		String separator = new String();
-		Pattern p = Pattern.compile("\\[(.*?)\\]");
+		Pattern p = Pattern.compile("\\[(.*?)\\]"); //Ler todos as strings dentro de  colchetes
 		Matcher m = p.matcher(numbers);
-		String pattern = "(\\\\)?(\\[(.*?)\\])*(\n)?(\\s+)*((-?\\d+)?((\\s)*,(\\s)*)*((\\s)*(\n)(\\s)*)*";
+		String pattern = "(\\\\)?(\\[(.*?)\\])*(\n)?(\\s+)*((-?\\d+)?((\\s)*,(\\s)*)*((\\s)*(\n)(\\s)*)*"; //Patter default que considera
+		// como separador a , e o \n. Além disto, ignora todos os espaços entre os separadores.
 		while(m.find()) {
-			separator ="\\Q" +  m.group(1) + "\\E";
-		    pattern += "((\\s)*" + separator + "(\\s)*)*";
-		    numbers2 = numbers2.replaceAll(separator, ",");
+			separator ="\\Q" +  m.group(1) + "\\E"; //O \Q e o \E servem para ler a expressao literalmente, evitando que elementos pre definidos
+			// no regex causem problemas, ex: *.
+		    pattern += "((\\s)*" + separator + "(\\s)*)*"; // adicionando ao patter default o novo separador
+		    numbers2 = numbers2.replaceAll(separator, ","); // trocando todos os separadores novos na string pelo separador
+		    // default , . Isto ajuda no caso do símbolo -
 		}
 		pattern += ")*";
-		
-		
-		//String pattern = "(\\s+)*((-?\\d+)?((\\s)*,(\\s)*)*((\\s)*\n(\\s)*)*)*";
 		
 		Pattern verificador = Pattern.compile(pattern);
 		System.out.println(verificador);
