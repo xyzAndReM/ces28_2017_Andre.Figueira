@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SIAPJTest" project="LABMOCK" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="labmock.SIAPJTest" time="0.423">
+    <testcase name="test" classname="labmock.SIAPJTest" time="0.399"/>
+    <testcase name="testaCriaReclamacao" classname="labmock.SIAPJTest" time="0.024"/>
+  </testsuite>
+</testrun>
