@@ -8,8 +8,6 @@ public class Address {
 	String _Zipcode;
 	
 	
-	private String _DisplayFormat;
-	
 	public Address(String street,String number, String city, String state, String zipcode) {
 		_Street = street;
 		_City   = city;
@@ -17,10 +15,6 @@ public class Address {
 		_Zipcode= zipcode;
 		_Number = number;
 	};
-	
-	public String toPrint() {
-		return _DisplayFormat;
-	}
 
 	public String get_Number() {
 		return _Number;
@@ -62,7 +56,5 @@ public class Address {
 		this._Zipcode = _Zipcode;
 	}
 	
-	public void set_DisplayFormat(String _Display) {
-		this._DisplayFormat = _Display;
-	}
+	
 }
