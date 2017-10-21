@@ -1,16 +1,16 @@
-package Exercicio1;
+package exercicio1Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Excercicio1.Address;
-import Excercicio1.Date;
-import Excercicio1.Formatter;
-import Excercicio1.FriendLetter;
-import Excercicio1.LetterBuilder;
-import Excercicio1.Person;
+import exercicio1.Address;
+import exercicio1.Date;
+import exercicio1.Formatter;
+import exercicio1.FriendLetter;
+import exercicio1.LetterBuilder;
+import exercicio1.Person;
 
 public class LettersBuildersTest {
 	

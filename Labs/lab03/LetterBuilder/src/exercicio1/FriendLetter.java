@@ -1,4 +1,4 @@
-package Excercicio2e3;
+package exercicio1;
 
 public class FriendLetter implements LetterBuilder {
 	
@@ -8,9 +8,6 @@ public class FriendLetter implements LetterBuilder {
 	Address _AddressDestinatary;
 	Date _Date;
 	String _Letter = "";
-	String _Greetings = new String();
-	String _Conclusion = new String();
-	String _Body = new String();
 	
 	
 	public String Header() {
@@ -22,22 +19,21 @@ public class FriendLetter implements LetterBuilder {
 
 	public String Greetings() {
 		String greetings = new String();
-		greetings = _Greetings + " " + _Destinatary.first_name()+",\n\n";
-		System.out.println(_Greetings);
+		greetings = "Querido " + _Destinatary.first_name()+",\n\n";
 		_Letter += greetings;
 		return greetings;
 	}
 
 	public String Body() {
 		String body = new String();
-		body = "<" + _Body + ">\n\n";
+		body = "<Escreva aqui a mensagem da carta>\n\n";
 		_Letter += body;
 		return body;
 	}
 
 	public String Conclusion() {
 		String conclusion = new String();
-		conclusion = _Conclusion + ",\n";
+		conclusion = "Sinceramente,\n";
 		_Letter += conclusion;
 		return conclusion;
 	}
@@ -67,14 +63,5 @@ public class FriendLetter implements LetterBuilder {
 	}
 	public void setDate(Date date) {
 		_Date = date;
-	}
-	public void setGreetings(String _Greetings) {
-		this._Greetings = _Greetings;
-	}
-	public void setBody(String _Body) {
-		this._Body = _Body;
-	}
-	public void setConclusion(String Conclusion) {
-		this._Conclusion = Conclusion;
 	}
 }

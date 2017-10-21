@@ -1,12 +1,12 @@
-package Exercicio1;
+package exercicio1Test;
 
 
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import Excercicio1.Address;
-import Excercicio1.Date;
+import exercicio1.Address;
+import exercicio1.Date;
 
 import org.junit.Before;
 

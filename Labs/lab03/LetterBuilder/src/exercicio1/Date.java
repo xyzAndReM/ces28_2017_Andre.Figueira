@@ -1,4 +1,4 @@
-package Excercicio1;
+package exercicio1;
 
 public class Date {
 	int _Day;

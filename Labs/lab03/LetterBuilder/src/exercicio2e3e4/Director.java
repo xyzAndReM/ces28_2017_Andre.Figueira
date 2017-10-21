@@ -1,14 +1,14 @@
-package Excercicio1;
+package exercicio2e3e4;
 /**Director**/
-public class Formatter {
-	private LetterBuilder _letterBuilder;
+public class Director {
+	private LetterTemplate _letterBuilder;
 	private Person _letterSender;
 	private Person _letterDestinatary;
 	private Address _letterSenderAddress;
 	private Address _letterDestinataryAddress;
 	private Date _letterDate;
 	
-    public void setLetterBuilder(LetterBuilder lb) {
+    public void setLetterBuilder(LetterTemplate lb) {
         _letterBuilder = lb;
     }
     public void setLetterSender(Person sender) {
@@ -25,6 +25,9 @@ public class Formatter {
 	}
 	public void setLetterDate(Date date) {
 		this._letterDate = date;
+	}
+	public void setLanguage(LanguageFormatter LAF) {
+		_letterBuilder.setLanguage(LAF);
 	}
    
     private void writeSender() {

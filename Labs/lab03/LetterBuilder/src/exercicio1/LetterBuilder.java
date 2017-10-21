@@ -1,4 +1,4 @@
-package Excercicio1;
+package exercicio1;
 
 public interface LetterBuilder {
 	public String Header();

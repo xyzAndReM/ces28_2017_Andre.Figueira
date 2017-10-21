@@ -1,8 +1,6 @@
-package Excercicio2e3;
-
-
-
-public class EnglishFormatter implements FormatterAbstractFactory {
+package exercicio1;
+/**Director**/
+public class Formatter {
 	private LetterBuilder _letterBuilder;
 	private Person _letterSender;
 	private Person _letterDestinatary;
@@ -10,7 +8,7 @@ public class EnglishFormatter implements FormatterAbstractFactory {
 	private Address _letterDestinataryAddress;
 	private Date _letterDate;
 	
-	public void setLetterBuilder(LetterBuilder lb) {
+    public void setLetterBuilder(LetterBuilder lb) {
         _letterBuilder = lb;
     }
     public void setLetterSender(Person sender) {
@@ -28,42 +26,20 @@ public class EnglishFormatter implements FormatterAbstractFactory {
 	public void setLetterDate(Date date) {
 		this._letterDate = date;
 	}
-	
-	
-	public void formatAddress(Address add) {
-		add.set_DisplayFormat ( add.get_Number() + " " + add.get_Street() + ",\nZip Code:" + add.get_Zipcode() + "\n" + add.get_City() + ", " + add.get_State()  + "\n");
-	}
-	public void formatDate(Date date) {
-		date.set_DisplayFormat( date.get_Month() + "/" + date.get_Day() + "/" + date.get_Year() );
-	}
-	public void formatGreetings() {
-		_letterBuilder.setGreetings("Dear");
-	}
-	public void formatBody() {
-		_letterBuilder.setBody("Write your message here");
-	}
-	public void formatConclusion() {
-		_letterBuilder.setConclusion("Sincerely");
-	}
-	
-	
    
-    public void writeSender() {
+    private void writeSender() {
     	_letterBuilder.setSender(_letterSender);
     }
-    public void writeDest() {
+    private void writeDest() {
     	_letterBuilder.setDestinatary(_letterDestinatary);
     }
-    public void writeSenAddress() {
-    	formatAddress(_letterSenderAddress);
+    private void writeSenAddress() {
     	_letterBuilder.setSenderAddress(_letterSenderAddress);
     }
-    public void writeDestAddress() {
-    	formatAddress(_letterDestinataryAddress);
+    private void writeDestAddress() {
     	_letterBuilder.setDestinataryAddress(_letterDestinataryAddress);
     }
-    public void writeDate() {
-    	formatDate(_letterDate);
+    private void writeDate() {
     	_letterBuilder.setDate(_letterDate);
     }
     
@@ -74,9 +50,6 @@ public class EnglishFormatter implements FormatterAbstractFactory {
     	writeSenAddress();
     	writeDestAddress();
     	writeDate();
-    	formatGreetings();
-    	formatBody();
-    	formatConclusion();
         _letterBuilder.Header();
         _letterBuilder.Greetings();
         _letterBuilder.Body();
@@ -87,5 +60,7 @@ public class EnglishFormatter implements FormatterAbstractFactory {
     public String getLetter() {
         return _letterBuilder.model();
     }
-
+	
 }
+
+

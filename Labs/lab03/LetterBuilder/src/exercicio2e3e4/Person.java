@@ -1,14 +1,14 @@
-package Excercicio1;
+package exercicio2e3e4;
 
 public class Person {
 	String _FirstName;
 	String _LastName;
 	String _Gender;
 	String _Title;
-	String _PhoneNumber;
+	Phone _PhoneNumber;
 	String _Email;
 	
-	public Person(String firstname, String lastname,String gender, String title, String phonenumber, String email){
+	public Person(String firstname, String lastname,String gender, String title, Phone phonenumber, String email){
 		_FirstName = firstname;
 		_LastName = lastname;
 		_Gender = gender;
@@ -34,7 +34,7 @@ public class Person {
 		return _Title;
 	}
 	
-	String phone_number() {
+	Phone phone_number() {
 		return _PhoneNumber;
 	}
 	

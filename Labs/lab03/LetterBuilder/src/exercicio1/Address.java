@@ -1,4 +1,4 @@
-package Excercicio1;
+package exercicio1;
 
 public class Address {
 	String _Street;
