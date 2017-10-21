@@ -11,7 +11,7 @@ public class BusinessLetter extends LetterTemplate {
 
 	public String Greetings() {
 		String greetings = new String();
-		greetings = _Greetings  + " " + _FieldFormatter.getFormattedName(_Sender)+",\n\n";
+		greetings = _Greetings  + " " + _FieldFormatter.getFormattedName(_Destinatary)+",\n\n";
 		_Letter += greetings;
 		return greetings;
 	}

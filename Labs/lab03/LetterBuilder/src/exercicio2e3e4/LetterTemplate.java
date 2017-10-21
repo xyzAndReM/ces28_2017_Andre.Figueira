@@ -12,8 +12,7 @@ public abstract class LetterTemplate {
 	String _Conclusion = "";
 	String _Body = "<>";
 	LanguageFormatter _FieldFormatter;
-	
-	
+		
 	public abstract String Header();
 	
 	public abstract String Greetings();

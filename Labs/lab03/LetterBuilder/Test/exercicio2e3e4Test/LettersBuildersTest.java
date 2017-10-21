@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import exercicio2e3e4.Address;
 import exercicio2e3e4.AddressFormatter;
+import exercicio2e3e4.AnonymousLetter;
 import exercicio2e3e4.BusinessLetter;
 import exercicio2e3e4.Date;
 import exercicio2e3e4.Director;
@@ -61,6 +62,7 @@ public class LettersBuildersTest {
 	Director diretor;
 	LetterTemplate friendletter;
 	LetterTemplate businessletter;
+	LetterTemplate anonymousletter;
 	
 	@Before
 	public void setUp(){
@@ -70,11 +72,23 @@ public class LettersBuildersTest {
 		person_sender = new Person(firstname_sender,lastname_sender,gender_sender,title_sender,phone_sender,email_sender);
 		date = new Date(day,month,year);
 		
+		/*
+		 * O director recebe dois argumentos principais: o modelo da carta a ser cosntruída e o formatador em sua respectiva língua. Além
+		 * disto ele também precisa dos dados para preencher os respectivos campos. Em resumo, o diretor é o responsável por receber os 
+		 * argumentos e construir a carta no final.
+		 */
 		diretor = new Director();
-		Eformatter = new EnglishLetterFormatter(); //construindo
-		Pformatter = new PortugueseLetterFormatter();
+		/*
+		 * Formatadores de língua
+		 */
+		Eformatter = new EnglishLetterFormatter(); // Instanciando os formatores de língua
+		Pformatter = new PortugueseLetterFormatter(); // Instanciando os formatores de língua
+		/*
+		 * Modelos de cartas
+		 */
 		friendletter = new FriendLetter();
 		businessletter = new BusinessLetter();
+		anonymousletter = new AnonymousLetter();
 		
 		diretor.setLetterDate(date);
 		diretor.setLetterDestinatary(person_destinatary);
@@ -110,7 +124,7 @@ public class LettersBuildersTest {
 				"6/28/1914\n" + 
 				"\n" + 
 				"\n" + 
-				"Mr Wesker,\n" + 
+				" Mr Wesker,\n" + 
 				"\n" + 
 				"<>\n" + 
 				"\n" + 
@@ -142,6 +156,14 @@ public class LettersBuildersTest {
 				",\n" + 
 				"				Harry",diretor.getLetter());
 		
+	}
+	
+	@Test
+	public void AnonymousLetterInPortuguese() {
+		diretor.setLetterBuilder(anonymousletter);
+		diretor.setLanguage(Pformatter);
+		diretor.constructLetter();
+		assertEquals(" Senhor Wesker,\n\n",diretor.getLetter());
 	}
 	
 	/**

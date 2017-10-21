@@ -10,14 +10,7 @@ public class AnonymousLetter extends LetterTemplate {
 	@Override
 	public String Greetings() {
 			String greetings = new String();
-			String pronoun = new String();
-			if(_Destinatary.gender() == "Male") {
-				pronoun = "Mr";
-			}
-			else {
-				pronoun = "Ms";
-			}
-			greetings = _Greetings  +pronoun + " " + _Destinatary.last_name()+",\n\n";
+			greetings = _Greetings  + " " + _FieldFormatter.getFormattedName(_Destinatary)+",\n\n";
 			_Letter += greetings;
 			return greetings;
 	}
