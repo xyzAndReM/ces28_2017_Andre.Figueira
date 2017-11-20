@@ -40,6 +40,10 @@ public abstract class AViewer {
     	printResult(file,value);
     }
     
+    public void addAlgorithm(InterpolationMethod IM, String name) {
+    	_presentter.addAlgorithm(IM,name);
+    }
+    
     
     
 }
